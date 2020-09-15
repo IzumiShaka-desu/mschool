@@ -56,7 +56,7 @@ class DrawerCust extends StatelessWidget {
                                               Navigator.of(context).pop();
                                             },
                                             child: Text('verified this mail')))
-                              ])
+                              ]),
                             ],
                           ),
                         );
