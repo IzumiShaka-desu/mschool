@@ -90,3 +90,8 @@ confirmDelete(BuildContext context)=>AlertDialog(
                                           ),
                                         ],
                                       );
+
+getValidString(String data){
+  return data??'';
+
+}
