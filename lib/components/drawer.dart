@@ -8,7 +8,10 @@ import '../utils.dart';
 class DrawerCust extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AuthService().getCurrentUser().then((value) => value.reload());
+
+    AuthService().getCurrentUser().then((value) {
+      
+      if(value!=null) value.reload();});
     return Drawer(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
