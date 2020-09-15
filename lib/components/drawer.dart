@@ -13,7 +13,7 @@ class DrawerCust extends StatelessWidget {
       
       if(value!=null) value.reload();});
     return Drawer(
-      child: Column(
+      child: Column( 
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
