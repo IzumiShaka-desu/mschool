@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mschool/components/drawer.dart';
 import 'package:mschool/models/school.dart';
+import 'package:mschool/screens/profile.dart';
 import 'package:mschool/service/auth_service.dart';
 import 'package:mschool/service/firestore_service.dart';
 
@@ -41,10 +42,11 @@ class _HomeState extends State<Home> {
       isLoading = true;
     });
     List<School> result = await FirestoreService().getData();
-    if(mounted)setState(() {
-      list = result;
-      isLoading = false;
-    });
+    if (mounted)
+      setState(() {
+        list = result;
+        isLoading = false;
+      });
   }
 
   @override
@@ -60,7 +62,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
       key: _sk,
       drawer: DrawerCust(),
-      appBar: AppBar(title: Text((isAddMode) ? 'Add Data' : 'List of School')),
+      appBar: AppBar(
+        title: Text((isAddMode) ? 'Add Data' : 'List of School'),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.account_circle),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (ctx) => ProfileDetail()));
+              })
+        ],
+      ),
       drawerEnableOpenDragGesture: true,
       body: Container(
         width: size.width,
